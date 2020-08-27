@@ -29,7 +29,7 @@ namespace Movies.API
         {
             services.AddControllers();
 
-            services.AddDbContext<MoviesAPIContext>(options =>
+            services.AddDbContext<MoviesContext>(options =>
                     options.UseInMemoryDatabase("Movies"));
         }
 
