@@ -30,7 +30,7 @@ namespace Movies.API
             services.AddControllers();
 
             services.AddDbContext<MoviesAPIContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("MoviesAPIContext")));
+                    options.UseInMemoryDatabase("Movies"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
