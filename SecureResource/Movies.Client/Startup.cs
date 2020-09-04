@@ -8,8 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
-using Movies.Client.Data;
+using Movies.Client.ApiServices;
 
 namespace Movies.Client
 {
@@ -26,9 +25,7 @@ namespace Movies.Client
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
-            services.AddDbContext<MoviesClientContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("MoviesClientContext")));
+            services.AddScoped<IMovieApiService, MovieApiService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
