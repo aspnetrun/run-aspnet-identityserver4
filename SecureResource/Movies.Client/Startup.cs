@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +28,28 @@ namespace Movies.Client
         {
             services.AddControllersWithViews();
             services.AddScoped<IMovieApiService, MovieApiService>();
+
+            services.AddAuthentication(options =>
+                {
+                    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+                })
+                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, options =>
+                {
+                    options.Authority = "https://localhost:5005";
+
+                    options.ClientId = "movies_client";
+                    options.ClientSecret = "secret";
+                    options.ResponseType = "code";
+
+                    options.Scope.Add("openid");
+                    options.Scope.Add("profile");
+
+                    options.SaveTokens = true;
+
+                    options.GetClaimsFromUserInfoEndpoint = true;
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
