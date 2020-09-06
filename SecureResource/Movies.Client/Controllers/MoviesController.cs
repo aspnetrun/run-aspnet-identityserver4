@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Movies.Client.ApiServices;
@@ -9,6 +10,7 @@ using Movies.Client.Models;
 
 namespace Movies.Client.Controllers
 {
+    [Authorize]
     public class MoviesController : Controller
     {        
         private readonly IMovieApiService _movieApiService;
