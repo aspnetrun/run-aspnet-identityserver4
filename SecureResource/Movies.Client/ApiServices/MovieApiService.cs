@@ -18,7 +18,7 @@ namespace Movies.Client.ApiServices
                         Id = 1,
                         Genre = "Comics",
                         Title = "asd",
-                        Rating = "9.2",
+                        Rating = "9.3",
                         ImageUrl = "images/src",
                         ReleaseDate = DateTime.Now,
                         Owner = "swn"
