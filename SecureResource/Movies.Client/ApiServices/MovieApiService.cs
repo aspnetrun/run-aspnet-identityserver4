@@ -9,7 +9,9 @@ namespace Movies.Client.ApiServices
     public class MovieApiService : IMovieApiService
     {
         public async Task<IEnumerable<Movie>> GetMovies()
-        {
+        {       
+
+
             // TODO : consume API here with IHttpClientFactory classes
             var movieList = new List<Movie>();
             movieList.Add(
