@@ -1,5 +1,6 @@
 ﻿using IdentityModel.Client;
 using Movies.Client.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace Movies.Client.ApiServices
             // 1. "retrieve" our api credentials. This must be registered on Identity Server!
             var apiClientCredentials = new ClientCredentialsTokenRequest
             {
-                Address = "http://localhost:5005/connect/token",
+                Address = "https://localhost:5005/connect/token",
 
                 ClientId = "movieClient",
                 ClientSecret = "secret",
@@ -28,7 +29,7 @@ namespace Movies.Client.ApiServices
             var client = new HttpClient();
 
             // just checks if we can reach the Discovery document. Not 100% needed but..
-            var disco = await client.GetDiscoveryDocumentAsync("http://localhost:5005");
+            var disco = await client.GetDiscoveryDocumentAsync("https://localhost:5005");
             if (disco.IsError)
             {
                 return null; // throw 500 error
@@ -48,30 +49,13 @@ namespace Movies.Client.ApiServices
             client.SetBearerToken(tokenResponse.AccessToken);
 
             // 4. Send a request to our Protected API
-            var response = await client.GetAsync("http://localhost:5002/api/protected");
+            var response = await client.GetAsync("https://localhost:5001/api/movies");
             response.EnsureSuccessStatusCode();
 
             var content = await response.Content.ReadAsStringAsync();
 
-
-
-
-            // TODO : consume API here with IHttpClientFactory classes
-            var movieList = new List<Movie>();
-            movieList.Add(
-                    new Movie
-                    {
-                        Id = 1,
-                        Genre = "Comics",
-                        Title = "asd",
-                        Rating = "9.3",
-                        ImageUrl = "images/src",
-                        ReleaseDate = DateTime.Now,
-                        Owner = "swn"
-                    }
-                );
-
-            return await Task.FromResult(movieList);
+            List<Movie> movieList = JsonConvert.DeserializeObject<List<Movie>>(content);
+            return movieList;            
         }
 
         public Task<Movie> GetMovie(string id)
