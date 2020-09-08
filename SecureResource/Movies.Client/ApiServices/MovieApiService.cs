@@ -1,4 +1,5 @@
-﻿using Movies.Client.Models;
+﻿using IdentityModel.Client;
+using Movies.Client.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,18 @@ namespace Movies.Client.ApiServices
     public class MovieApiService : IMovieApiService
     {
         public async Task<IEnumerable<Movie>> GetMovies()
-        {       
+        {
+            // 1. "retrieve" our api credentials. This must be registered on Identity Server!
+            var apiClientCredentials = new ClientCredentialsTokenRequest
+            {
+                Address = "http://localhost:5005/connect/token",
+
+                ClientId = "movieClient",
+                ClientSecret = "secret",
+
+                // This is the scope our Protected API requires. 
+                Scope = "movieAPI"
+            };
 
 
             // TODO : consume API here with IHttpClientFactory classes
