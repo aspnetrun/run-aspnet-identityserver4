@@ -25,7 +25,7 @@ namespace IdentityServer
                    },
                    new Client
                    {
-                       ClientId = "movies_client",
+                       ClientId = "movies_mvc_client",
                        ClientName = "Movies MVC Web App",
                        AllowedGrantTypes = GrantTypes.Code,
                        AllowRememberConsent = false,
@@ -44,7 +44,8 @@ namespace IdentityServer
                        AllowedScopes = new List<string>
                        {
                            IdentityServerConstants.StandardScopes.OpenId,
-                           IdentityServerConstants.StandardScopes.Profile
+                           IdentityServerConstants.StandardScopes.Profile,
+                           "movieAPI"
                        }
                    }
             };
@@ -58,7 +59,7 @@ namespace IdentityServer
         public static IEnumerable<ApiResource> ApiResources =>
           new ApiResource[]
           {
-               new ApiResource("movieAPI", "Movie API")
+               //new ApiResource("movieAPI", "Movie API")
           };
 
         public static IEnumerable<IdentityResource> IdentityResources =>
