@@ -58,6 +58,7 @@ namespace IdentityServer
         public static IEnumerable<ApiResource> ApiResources =>
           new ApiResource[]
           {
+               new ApiResource("movieAPI", "Movie API")
           };
 
         public static IEnumerable<IdentityResource> IdentityResources =>
