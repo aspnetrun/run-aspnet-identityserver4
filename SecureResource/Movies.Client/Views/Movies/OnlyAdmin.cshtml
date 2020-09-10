@@ -1,0 +1,33 @@
+﻿@model Movies.Client.Models.UserInfoViewModel
+
+@{
+    ViewData["Title"] = "OnlyAdmin";
+}
+
+<h1>OnlyAdmin</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Claim Type
+            </th>
+            <th>
+                Claim Value
+            </th>            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.UserInfoDictionary)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Key)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Value)
+                </td>                            
+            </tr>
+        }
+    </tbody>
+</table>
