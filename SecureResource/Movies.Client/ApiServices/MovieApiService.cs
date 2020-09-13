@@ -148,7 +148,7 @@ namespace Movies.Client.ApiServices
                 userInfoDictionary.Add(claim.Type, claim.Value);
             }
 
-            return new UserInfoViewModel(userInfoDictionary);            
+            return new UserInfoViewModel(userInfoDictionary);
         }
     }
 }

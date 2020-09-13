@@ -76,7 +76,7 @@ namespace IdentityServer
                     "roles",
                     "Your role(s)",
                     new List<string>() { "role" })
-          };             
+          };
 
         public static List<TestUser> TestUsers =>
             new List<TestUser>
