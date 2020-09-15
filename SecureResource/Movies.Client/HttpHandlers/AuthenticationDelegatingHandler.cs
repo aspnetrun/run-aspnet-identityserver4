@@ -18,7 +18,6 @@ namespace Movies.Client.HttpHandlers
             _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
         }
 
-
         //private readonly IHttpClientFactory _httpClientFactory;
         //private readonly ClientCredentialsTokenRequest _tokenRequest;
 
