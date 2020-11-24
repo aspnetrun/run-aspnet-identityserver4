@@ -28,3 +28,20 @@ Once the client has a bearer token it will call the API endpoint which is fronte
 After Ocelot reroutes the request to the internal API, it will present the token to Identity Server in the **authorization pipeline**. If the client is authorized the request will be processed and a list of movies will be sent back to the client.
 
 Also over these picture, we have also apply the **claim based authentications**.
+
+### Installing
+Follow these steps to get your development environment set up: (Before Run Start the Docker Desktop)
+1. Check All projects run profiles. One by one Right Click the project file, open Properties window and check the debug section. Launh Profile should be the "Project" and App URLs should be the same as big picture.
+2. For all projects, one by one, Set a Startup project and see the Run profile on the Run button. Change the default running profile to IIS Express to Project name.
+3. Multiple startup projects. Right click the solution, open Properties, and set Multiple startup project and Start all 4 application click apply and ok.
+4. Now you can run the overall application with Click Start button or F5.
+You will see 4 project console window and 1 chrome window for client application.
+
+* **Movies.Client -> https://localhost:5002/**
+
+Check the application with logging the system with below credentials;
+username - password 1 : alice - a1
+username - password 2 : bob - b1
+
+
+
