@@ -40,8 +40,8 @@ You will see 4 project console window and 1 chrome window for client application
 * **Movies.Client -> https://localhost:5002/**
 
 Check the application with logging the system with below credentials;
-username - password 1 : alice - a1
-username - password 2 : bob - b1
 
+* **username - password 1 : alice - a1**
+* **username - password 2 : bob - b1**
 
 
