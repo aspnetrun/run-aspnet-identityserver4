@@ -1,5 +1,7 @@
 # Securing Microservices with IdentityServer4, OAuth2 and OpenID Connect fronted by Ocelot API Gateway
 
+**UDEMY COURSE WITH DISCOUNTED - Step by Step Development of this repository -> https://www.udemy.com/course/secure-net-microservices-with-identityserver4-oauth2openid/?referralCode=6615E54FFF6B4FCC081D**
+
 **Check Explanation of this Repository on Medium -> https://medium.com/@mehmetozkaya/securing-microservices-with-identityserver4-with-oauth2-and-openid-connect-fronted-by-ocelot-api-49ea44a0cf9e**
 
 ### Overall Picture
